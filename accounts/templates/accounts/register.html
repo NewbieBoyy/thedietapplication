@@ -1,0 +1,25 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+<style>
+    .card {
+        background: linear-gradient(10deg, #380036, #0cbaba, rgb(204, 204, 255));
+    }
+</style>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" class="btn btn-primary">Submit Your Information</button>
+    <br />
+</form>
+<div class="card">
+    <div class="card-header">
+        Featured
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Registrations Info</h5>
+        <p class="card-text">Click Here</p>
+        <a href="{% url 'registerInfo' %}" class="btn btn-primary">Register Info</a>
+    </div>
+</div>
+{% endblock %}

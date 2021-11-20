@@ -1,0 +1,14 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" class="btn btn-primary">Submit Your Information</button>
+    <br />
+
+
+{% endblock content %}

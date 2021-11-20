@@ -1,0 +1,212 @@
+{%  extends 'accounts/main.html' %}
+{% load mathfilters %}
+
+
+{% block content %}
+<style>
+    div {
+        background: linear-gradient(170deg, #380036, #0cbaba, rgb(204, 204, 255));
+    }
+    p {
+        color: orangered;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    h1 {
+        color: blue;
+        font-size: 30px;
+    }
+
+    .name {
+        color: black;
+        font-weight: bold;
+    }
+
+    .age {
+        color: black;
+        font-weight: bold;
+    }
+
+    .height {
+        color: black;
+        font-weight: bold;
+    }
+
+    .weight {
+        font-weight: bold;
+        color: black;
+    }
+
+    .gender {
+        font-weight: bold;
+        color: black;
+    }
+
+    .lifestyle {
+        font-weight: bold;
+        color: black;
+    }
+
+    .goals {
+        font-weight: bold;
+        color: black;
+    }
+
+    .foodprefence {
+        font-weight: bold;
+        color: black;
+    }
+
+    .HeightStatus {
+        font-weight: bold;
+        color: black;
+    }
+    .BMI {
+        color: black;
+        font-weight: bold;
+    }
+    
+</style>
+<p>To calculate your BMI, multiply your height in inches times your height in inches. Then, divide your weight by that number. Finally, multiply that result by 705. People with a BMI of 25 or above are considered at higher risk for many health issues.</p>
+
+<h1>Table</h1>
+
+
+
+{% for i in info %}
+<div>
+   
+        <table class="table table-white table-borderless" >
+            <tr>
+                <td class="name linearGradient">Name</td>
+                <td class="age linearGradient1">Age</td>
+                <td class="height linearGradient2">Height</td>
+                <td class="weight linearGradient3">Weight</td>
+                <td class="gender linearGradient4">Gender</td>
+                <td class="lifestyle linearGradient5">Lifestyle</td>
+                <td class="goals linearGradient6">Goals</td>
+                <td class="foodprefence linearGradient7">Foodprefrence</td>
+                <td class="linearGradient8">HeightStatus</td>
+                <td class="BMI linearGradient9">BMI</td>
+                <td class="BMI linearGradient10">BodyFat(Estimated from BMI)</td>
+
+
+
+
+
+            </tr>
+            <tr>
+
+                <td class="name linearGradient">{{i.name}}</td>
+                <td class="age linearGradient1">{{i.age}}</td>
+                <td class="height linearGradient2">{{i.height}}</td>
+                <td class="weight linearGradient3">{{i.weight}}</td>
+                <td class="gender linearGradient4">{{i.gender}}</td>
+                <td class="lifestyle linearGradient5">{{i.lifestyle}}</td>
+                <td class="goals linearGradient6">{{i.goals}}</td>
+                <td class="foodprefence linearGradient7">{{i.foodprefence}}</td>
+                <td class="HeightStatus linearGradient8">
+                    {% if i.height <= 150 %}
+                    You are Underheight
+                    {% elif i.height >= 200 %}
+                    You are Tall
+                    {% else %}
+                    You are Normal
+                    {%endif%}
+                </td>
+
+                <td class="BMI linearGradient9">
+                    {% with total=i.weight|mul:1549.84970316 numerator=i.height|mul:0.3937007874 %}
+                    {{ total|div:numerator|div:numerator }}
+                    {% with total1=total numerator1=numerator %}
+                    {% if  total1|div:numerator1|div:numerator1 < 18.5 %}
+                    <br />
+                    You are Underweight
+                    <br />
+                    <button type="button" class="btn btn-secondary btn-sm">
+                        <a class="nav-link goals" href="{% url 'underweight' %}">Diet Chart </a>
+                    </button>
+                   
+                    {% elif total1|div:numerator1|div:numerator1 < 24.9 %}
+                    <br />
+                    You are Normal
+                    {% elif total1|div:numerator1|div:numerator1 < 30.0 %}
+                    <br />
+                    You are overweight
+                    <br />
+                    <a href="https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/health-risks" class="btn btn-primary">Know more about the risks</a>
+                    {% elif total1|div:numerator1|div:numerator1 > 30.0 %}
+                    <br />
+                    You are Obese
+                    <br />
+                    <button type="button" class="btn btn-secondary btn-sm">
+                        <a class="nav-link goals" href="{% url 'overweight' %}">Diet Chart </a>
+                    </button>
+                    <br />
+                    <a href="https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/health-risks" class="btn btn-primary">Know more about the risks</a>
+                    {%endif%}
+                    {% endwith %}
+
+
+                    {% endwith %}
+
+
+                </td>
+                <td class="BMI linearGradient10">
+                    {% if i.age < 20 %}
+                    <p>Can't calculate under 20</p>
+
+
+                    {% elif i.age > 20 %}
+                    {% if i.gender == "male" %}
+                    {% with total=i.weight|mul:1549.84970316 numerator=i.height|mul:0.3937007874 %}
+                    {% with total1=total|div:numerator|div:numerator numerator1=1.20 %}
+                  
+
+                    {% with total2=i.age numerator2=0.23 %}
+                  
+                    {% with total3=16.2 %}
+                    
+
+                    {% with total6=total1|mul:numerator1 total7=total2|mul:numerator2 total8=total3 %}
+                    {{ total6|add:total7|sub:total8 }}
+                    {% endwith %}
+                    {% endwith %}
+                    {% endwith %}
+                    {% endwith %}
+                    {% endwith %}
+                    {% elif i.gender == "female" %}
+                    {% with total=i.weight|mul:1549.84970316 numerator=i.height|mul:0.3937007874 %}
+
+                    {% with total1=total|div:numerator|div:numerator numerator1=1.2 %}
+
+                    
+                    {% with total2=i.age numerator2=0.23 %}
+
+                    
+                    {% with total3=10.8 numerator3=0 %}
+
+                    {% with total6=total1|mul:numerator1 total7=total2|mul:numerator2 total8=total3|mul:numerator3 total9=5.4  %}
+                    {{ total6|add:total7|sub:total8|sub:total9 }}
+                    {% endwith %}
+                    {% endwith %}
+                    {% endwith %}
+                    {% endwith %}
+                    {% endwith %}
+                    {%endif%}
+
+
+                    {%endif%}
+                </td>
+</div>
+
+
+    </tr>
+</TABLE>
+
+    {% endfor %}
+
+
+
+    {% endblock %}
