@@ -25,11 +25,16 @@ class Info(models.Model):
 		('NonVegetarian','NonVegetarian'),
 		('Vegan','Vegan'),
 	)
+	CHOICES0 = (
+		('male','male'),
+		('female','female'),
+		
+	)
 	name=models.CharField(max_length=200, null=True)
 	age=models.FloatField(null=True)
 	height=models.FloatField(null=True)
 	weight=models.FloatField(null=True)
-	gender=models.CharField(max_length=200, null=True)
+	gender=models.CharField(max_length=200, null=True,choices=CHOICES0)
 	lifestyle=models.CharField(max_length=200, null=True,choices=CHOICES1)
 	goals=models.CharField(max_length=200, null=True,choices=CHOICES2)
 	foodprefence=models.CharField(max_length=200, null=True,choices=CHOICES3)

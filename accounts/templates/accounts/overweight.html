@@ -2,6 +2,52 @@
 
 {% block content %}
 <style>
+    /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+    .flip-card {
+        background-color: transparent;
+        width: 300px;
+        height: 200px;
+        border: 1px solid #f1f1f1;
+        perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    }
+
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    /* Position the front and back side */
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+        background-color: #bbb;
+        color: black;
+    }
+
+    /* Style the back side */
+    .flip-card-back {
+        background-color: dodgerblue;
+        color: white;
+        transform: rotateY(180deg);
+    }
+
     p {
         text-align: center;
     }
@@ -55,11 +101,88 @@
         width: 200px;
     }
 
-    .c {
-        background-image: url("https://tse4.mm.bing.net/th?id=OIP.jh3AbLi__7eoNwrVIkaC-QHaE8&pid=Api&P=0&w=228&h=153");
+    .b {
+        background-image: url("https://tse4.mm.bing.net/th?id=OIP.foMpl1DPjMrTtswOt7v8QgHaEk&pid=Api&P=0&w=248&h=154");
         background-repeat: repeat-y;
         height: 150px;
         width: 200px;
+    }
+
+    .SpicyTomatoBakedEggs {
+        background-image: url("https://imagesvc.meredithcorp.io/v3/mm/image?url=https:%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F5340730.jpg");
+        background-repeat: repeat-y;
+        height: 800px;
+        width: 800px;
+    }
+
+    .c {
+        background-image: url("https://tse2.mm.bing.net/th?id=OIP.aWEw-WAkpdykw0TrpOoaGwHaJ4&pid=Api&P=0&w=300&h=300");
+        background-repeat: repeat-y;
+        height: 300px;
+        width: 500px;
+    }
+
+    .d {
+        background-image: url("https://tse4.mm.bing.net/th?id=OIP.R6ZZimyq68HsHv0gm_z_CwHaE8&pid=Api&P=0&w=245&h=164");
+        background-repeat: repeat-y;
+        height: 150px;
+        width: 200px;
+    }
+
+    .e {
+        background-image: url("https://tse2.mm.bing.net/th?id=OIP.CW_-TUO8hi9DV6jxRu3ChQHaGu&pid=Api&P=0&w=188&h=172");
+        background-repeat: repeat-y;
+        height: 150px;
+        width: 200px;
+    }
+
+    .f {
+        background-image: url("https://tse3.mm.bing.net/th?id=OIP.UaYpX91IFuAwyxRPLa63UAHaHa&pid=Api&P=0&w=300&h=300");
+        background-repeat: repeat-y;
+        height: 300px;
+        width: 300px;
+    }
+
+    .g {
+        background-image: url("https://tse4.mm.bing.net/th?id=OIP.X3JHIgHG0D-c-Jk_ChVYBwHaE7&pid=Api&P=0&w=233&h=156");
+        background-repeat: repeat-y;
+        height: 150px;
+        width: 300px;
+    }
+
+    .h {
+        background-image: url("https://tse4.mm.bing.net/th?id=OIP.53J8tMj4BOoDPk5Leuj0xAHaJ6&pid=Api&P=0&w=300&h=300");
+        background-repeat: repeat-y;
+        height: 150px;
+        width: 200px;
+    }
+
+    .PanzanellaSalad {
+        background-image: url("https://tse1.mm.bing.net/th?id=OIP.lD9QfPLn4iW46CYc5HZejgHaJQ&pid=Api&P=0&w=300&h=300");
+        background-repeat: repeat-y;
+        height: 250px;
+        width: 220px;
+    }
+
+    .MediterraneanChickenQuinoa {
+        background-image: url("https://tse4.mm.bing.net/th?id=OIP.YW6ye9nh2If18bOgTz2qywHaLJ&pid=Api&P=0&w=300&h=300");
+        background-repeat: repeat-y;
+        height: 220px;
+        width: 200px;
+    }
+
+    .QuinoaStirFriedVeg {
+        background-image: url("https://tse1.mm.bing.net/th?id=OIP.dp6p0xf8bqVhupy07fTvLwHaJ4&pid=Api&P=0&w=300&h=300");
+        background-repeat: repeat-y;
+        height: 290px;
+        width: 400px;
+    }
+
+    .GrilledVegetableswithBeanMash {
+        background-image: url("https://tse3.mm.bing.net/th?id=OIP.RGkaK6kdsEb2mu1nKnN8kgHaEK&pid=Api&P=0&w=288&h=163");
+        background-repeat: repeat-y;
+        height: 160px;
+        width: 300px;
     }
 </style>
 
@@ -77,7 +200,7 @@
     </tr>
     <tr>
         <td>
-            <a href="">
+            
                 Banana Yogurt
                 Pots
             </a>
@@ -219,7 +342,7 @@
             Panzanella Salad
         </td>
         <td>
-            <a href="">
+          
                 Mediterranean
                 Chicken, Quinoa &
                 Greek Salad
@@ -255,49 +378,331 @@
 
 
 </table>
-<h1>
-    Banana Yogurt Pots
-</h1>
-<h1 class="bannanaYogurtPots"></h1>
-<br />
+<h1>Move on the pictures</h1>
 <br />
 <br />
 
-<h1>Moroccan Chickpea Soup</h1>
-<h1 class="MoroccanChickpeaSoup"></h1>
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://i.pinimg.com/originals/0f/2a/68/0f2a6800f2ea8f31bb6ec3de18941f48.jpg" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+            <h1>
+                <a href="https://www.tfrecipes.com/banana-yogurt-pots/#:~:text=Nutrition%20Facts%20%3A%20Calories%20230%20calories%2C%20Fat%206,POPS%20%7C%203%20INGREDIENTS%21%20-%20THE%20PRODUCE%20MOMS"> Banana Yogurt Pots</a>
+            </h1>
+
+        </div>
+    </div>
+</div>
 <br />
 <br />
 <br />
-<h1>Spicy Mediterranean Beet Salad</h1>
-<h1 class="SpicyMediterraneanBeetSalad"></h1>
-<br />
-<br />
-<br />
-<h1>Cannellini Bean Salad</h1>
-<h1 class="x"></h1>
-<br />
-<br />
-<br />
-<h1>Moussaka</h1>
-<h1 class="y"></h1>
-<br />
-<br />
-<br />
-<h1>Moussaka</h1>
-<h1 class="a"></h1>
-<br />
-<br />
-<br />
-<h1>Moussaka</h1>
-<h1 class="b"></h1>
-<br />
-<br />
-<br />
-<h1>Moussaka</h1>
-<h1 class="c"></h1>
 <br />
 <br />
 <br />
 
 
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.qEphboHDJTMVzw5ioPVkkgHaG-&pid=Api&P=0&w=170&h=161" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+            <h1><a href="https://www.eatthismuch.com/food/nutrition/moroccan-chickpea-soup,84434/">Moroccan Chickpea Soup</a></h1>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.sMNJ4fuKzOuhGkU-RfPW1wHaKc&pid=Api&P=0&w=300&h=300" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+            <h1>
+                <a href="https://www.sparkpeople.com/calories-in.asp?food=beet+salad"> Spicy Mediterranean Beet Salad</a>
+            </h1>
+
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.AgkoLGxTnCZeKFdPub5YYgHaEK&pid=Api&P=0&w=294&h=166" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+            <h1><a href="https://recipes.sparkpeople.com/recipe-calories.asp?recipe=2949298">Cannellini Bean Salad</a></h1>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.LOXfcXygv1qLNLunOX50CAHaE5&pid=Api&P=0&w=231&h=154" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+            <h1> <a href="https://healthfully.com/504996-the-nutrition-of-moussaka.html">Moussaka</a></h1>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.8Kl1pZtkpUwvJOU7T7OkdgHaE8&pid=Api&P=0&w=242&h=162" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+            <h1> <a href="https://recipes.sparkpeople.com/recipe-calories.asp?recipe=98879">Tomato and Watermelon Salad</a></h1>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.foMpl1DPjMrTtswOt7v8QgHaEk&pid=Api&P=0&w=248&h=154" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+            <h1> <a href="https://www.eatthismuch.com/recipe/nutrition/veggie-wrap,33520/">	Edgy Veggie Wraps</a></h1>
+
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https:%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F5340730.jpg" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+
+            <h1> <a href="https://recipes.sparkpeople.com/recipe-calories.asp?recipe=2013753">Spicy Tomato Baked Eggs</a></h1>
+
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.aWEw-WAkpdykw0TrpOoaGwHaJ4&pid=Api&P=0&w=300&h=300" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+
+
+            <h1> <a href="https://www.kimscravings.com/easy-blueberry-banana-oatmeal/#:~:text=Serving%3A%201oatmeal%20bowl%20topped%20with%20blueberries%20and%20remaining,260IU%2C%20Vitamin%20C%3A%205mg%2C%20Calcium%3A%20245mg%2C%20Iron%3A%202.1mg">	Blueberry Oats Bowl</a></h1>
+
+
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.R6ZZimyq68HsHv0gm_z_CwHaE8&pid=Api&P=0&w=245&h=164" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+
+
+
+            <h1> <a href="https://www.splendidtable.org/story/2014/03/24/carrot-avocado-and-orange-salad">Carrot, Orange and Avocado Salad</a></h1>
+
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.CW_-TUO8hi9DV6jxRu3ChQHaGu&pid=Api&P=0&w=188&h=172" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+
+
+            <h1> <a href="https://www.sidewalkshoes.com/salmon-with-new-potato-and-corn-salad/">	Salmon with Potatoes and Corn Salad</a></h1>
+
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.UaYpX91IFuAwyxRPLa63UAHaHa&pid=Api&P=0&w=300&h=300" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+
+
+            <h1> <a href="https://www.sparkpeople.com/calories-in.asp?food=mixed+bean+salad">Mixed Bean Salad</a></h1>
+
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.X3JHIgHG0D-c-Jk_ChVYBwHaE7&pid=Api&P=0&w=233&h=156" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+
+            <h1> <a href="https://recipes.sparkpeople.com/recipe-calories.asp?recipe=776700">Spiced Carrot and Lentil Soup</a></h1>
+
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.53J8tMj4BOoDPk5Leuj0xAHaJ6&pid=Api&P=0&w=300&h=300" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+            <h1> <a href="https://www.myfitnesspal.com/food/calories/generic-panzanella-salad-4078464">Panzanella Salad</a></h1>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.YW6ye9nh2If18bOgTz2qywHaLJ&pid=Api&P=0&w=300&h=300" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+
+            <h1><a href="https://www.fatsecret.com/calories-nutrition/panera-bread/mediterranean-chicken-and-quinoa-salad">Mediterranean ChickenQuinoa</a></h1>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.dp6p0xf8bqVhupy07fTvLwHaJ4&pid=Api&P=0&w=300&h=300" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+
+            <h1> <a href="https://tools.myfooddata.com/nutrition-facts/583288/wt1">Quinoa Stir FriedVeg</a></h1>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.RGkaK6kdsEb2mu1nKnN8kgHaEK&pid=Api&P=0&w=288&h=163" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+
+            <h1> <a href="https://vegangela.com/2011/08/30/grilled-mediterranean-veggies-with-bean-mash/">Grilled Vegetables withBeanMash</a></h1>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 {% endblock %}

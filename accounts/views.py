@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import CustomerForm,InfoForm
+from .forms import *
 from .models import *
 
 # Create your views here.
@@ -49,3 +49,17 @@ def underweight(request):
 	
 def overweight(request):
 	return render(request, 'accounts/overweight.html')
+
+
+
+def edit(request,pk):
+	order = Info.objects.get(id=pk)
+	form = formInfo(instance=order)
+	if request.method == 'POST':
+		form = formInfo(request.POST,instance=order)
+		if form.is_valid():
+			form.save()
+			return redirect('/')
+	
+	context= {'form':form}
+	return render(request, 'accounts/edit.html',context)

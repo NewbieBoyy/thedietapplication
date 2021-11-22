@@ -60,7 +60,7 @@
 
         @keyframes backdiv {
             50% {
-                background: ;
+                background:;
             }
         }
 
@@ -100,10 +100,13 @@
 </head>
 <body>
     {%  include 'accounts/navbar.html' %}
-    
-        {% block content %}
-
-
+    <div class="container-fluid">
+        <form action="" method="POST">
+            {% block content %}
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" name="Submit" />
+        </form>
 
         {% endblock %}
     </div>

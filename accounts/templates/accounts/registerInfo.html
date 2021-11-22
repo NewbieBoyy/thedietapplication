@@ -70,7 +70,6 @@
 </style>
 <p>To calculate your BMI, multiply your height in inches times your height in inches. Then, divide your weight by that number. Finally, multiply that result by 705. People with a BMI of 25 or above are considered at higher risk for many health issues.</p>
 
-<h1>Table</h1>
 
 
 
@@ -87,10 +86,10 @@
                 <td class="lifestyle linearGradient5">Lifestyle</td>
                 <td class="goals linearGradient6">Goals</td>
                 <td class="foodprefence linearGradient7">Foodprefrence</td>
-                <td class="linearGradient8">HeightStatus</td>
+             
                 <td class="BMI linearGradient9">BMI</td>
                 <td class="BMI linearGradient10">BodyFat(Estimated from BMI)</td>
-
+                <td>Edit</td>
 
 
 
@@ -106,15 +105,7 @@
                 <td class="lifestyle linearGradient5">{{i.lifestyle}}</td>
                 <td class="goals linearGradient6">{{i.goals}}</td>
                 <td class="foodprefence linearGradient7">{{i.foodprefence}}</td>
-                <td class="HeightStatus linearGradient8">
-                    {% if i.height <= 150 %}
-                    You are Underheight
-                    {% elif i.height >= 200 %}
-                    You are Tall
-                    {% else %}
-                    You are Normal
-                    {%endif%}
-                </td>
+             
 
                 <td class="BMI linearGradient9">
                     {% with total=i.weight|mul:1549.84970316 numerator=i.height|mul:0.3937007874 %}
@@ -127,7 +118,7 @@
                     <button type="button" class="btn btn-secondary btn-sm">
                         <a class="nav-link goals" href="{% url 'underweight' %}">Diet Chart </a>
                     </button>
-                   
+
                     {% elif total1|div:numerator1|div:numerator1 < 24.9 %}
                     <br />
                     You are Normal
@@ -135,8 +126,14 @@
                     <br />
                     You are overweight
                     <br />
+                    <button type="button" class="btn btn-secondary btn-sm">
+                        <a class="nav-link goals" href="{% url 'overweight' %}">Diet Chart </a>
+                    </button>
+                    <br />
+
                     <a href="https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/health-risks" class="btn btn-primary">Know more about the risks</a>
                     {% elif total1|div:numerator1|div:numerator1 > 30.0 %}
+
                     <br />
                     You are Obese
                     <br />
@@ -199,7 +196,15 @@
 
                     {%endif%}
                 </td>
+                <td>
+                    
+                        <button type="button" class="btn btn-secondary btn-sm">
+                            <a class="nav-link goals" href="{% url 'edit' i.id %}">Edit Age-Height-Weight </a>
+                        </button>
+
+                </td>
 </div>
+
 
 
     </tr>

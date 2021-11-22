@@ -12,4 +12,5 @@ urlpatterns = [
     path('registerInfo/', views.registerInfo, name="registerInfo"),
     path('underweight/', views.underweight, name="underweight"),
     path('overweight/', views.overweight, name="overweight"),
+    path('edit/<str:pk>', views.edit, name="edit"),
 ]

@@ -1,15 +1,33 @@
 {%  extends 'accounts/main.html' %}
 
 {% block content %}
+<style>
+    .animation {
+        width: 100px;
+        height: 100px;
+        background: red;
+        transition: width 2s;
+    }
 
-{%  include 'accounts/status.html' %}
+        .animation:hover {
+            width: 200px;
+        }
+</style>
+
+
+<br />
+<br />
+
+<div class="animation">This is my diet Page</div>
+
+
 
 <br>
 <!-- Default dropend button -->
 <div class="btn-group dropend">
-    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"  >
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         <a href="{% url 'signup' %}">Signup </a>
-</button>
+    </button>
     <ul class="dropdown-menu">
         <!-- Dropdown menu links -->
     </ul>
@@ -19,7 +37,7 @@
 <div class="btn-group dropend">
     <button type="button" class="btn btn-secondary">
         <a class="nav-link" href="{% url 'login' %}">Login </a>
-</button>
+    </button>
 
     <ul class="dropdown-menu">
         <!-- Dropdown menu links -->
@@ -28,7 +46,7 @@
 
 <br />
 
-{% endblock %}
+    {% endblock %}
 <div class="card">
     <div class="card-header">
         Quote

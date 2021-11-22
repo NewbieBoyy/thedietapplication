@@ -11,3 +11,9 @@ class InfoForm(ModelForm):
 	class Meta:
 		model = Info
 		fields = '__all__'
+
+
+class formInfo(ModelForm):
+	class Meta:
+		model = Info
+		fields = ['age','height','weight']
