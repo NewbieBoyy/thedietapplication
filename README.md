@@ -1,2 +1,2 @@
 # thedietapplication
-This is a diet application 
+Diet application written in HTML/CSS  and Django
